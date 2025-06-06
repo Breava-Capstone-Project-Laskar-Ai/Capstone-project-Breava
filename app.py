@@ -36,6 +36,10 @@ def categorize_pm25(pm25):
 # --- Load model dan scaler ---
 try:
     model = load_model("model/air_quality_lstm_model.h5", compile=False)
+    # Workaround for the time_major issue
+    for layer in model.layers:
+        if hasattr(layer, 'time_major'):
+            delattr(layer, 'time_major')
 except Exception as e:
     st.error(f"Gagal memuat model: {e}")
     st.stop()
