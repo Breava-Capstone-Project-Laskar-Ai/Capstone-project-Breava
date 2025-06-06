@@ -34,12 +34,25 @@ def categorize_pm25(pm25):
         return "Hazardous", "#A05252"
 
 # --- Load model dan scaler ---
+import tensorflow as tf
+
+# Custom objects untuk menangani parameter yang tidak dikenal
+def custom_lstm(*args, **kwargs):
+    # Hapus parameter time_major jika ada
+    kwargs.pop('time_major', None)
+    return tf.keras.layers.LSTM(*args, **kwargs)
+
 try:
-    model = load_model("model/air_quality_lstm_model.h5", compile=False)
-    # Workaround for the time_major issue
-    for layer in model.layers:
-        if hasattr(layer, 'time_major'):
-            delattr(layer, 'time_major')
+    # Daftar custom objects
+    custom_objects = {
+        'LSTM': custom_lstm
+    }
+    
+    model = load_model("model/air_quality_lstm_model.h5", 
+                      custom_objects=custom_objects, 
+                      compile=False)
+    st.success("Model berhasil dimuat!")
+    
 except Exception as e:
     st.error(f"Gagal memuat model: {e}")
     st.stop()
