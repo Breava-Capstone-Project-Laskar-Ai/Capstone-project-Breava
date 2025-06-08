@@ -77,13 +77,14 @@ pip install -r requirements.txt
 > If you don't have it yet, create a `requirements.txt` file and add the following:
 
 ```txt
-streamlit
-pandas
-numpy
-matplotlib
-scikit-learn
-tensorflow
-joblib
+streamlit==1.45.1
+numpy==1.24.3
+pandas==2.3.0
+matplotlib==3.10.3
+plotly==6.1.2
+scikit-learn==1.7.0
+tensorflow==2.13.0
+Pillow==11.2.1
 ```
 
 #### 4. 🚀 Run the Streamlit App
