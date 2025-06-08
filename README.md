@@ -11,14 +11,23 @@ This dataset contains air pollution measurements, such as Particulate Matter (PM
 Attribute Information
 
 > Date - Date of measurements
+
 > PM10 - Particulate Matter measurements
+
 > PM2.5 - Particulate Matter measurements
+
 > SO2 - Sulfur Dioxide measurements
+
 > CO - Carbon Monoxide measurements
+
 > O3 - Ozone measurements
+
 > NO2 - Natrium DIoxide measurements
+
 > Max - The highest measurement value
+
 > Critical Component - Component(s) that has the highest measurement value
+
 > Category - Category of air pollution, whether it's good or not
 
 ## Model
